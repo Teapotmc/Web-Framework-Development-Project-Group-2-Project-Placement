@@ -1,0 +1,52 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}General Messages{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block generalMessageNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <h1>General Messages</h1>
+
+
+    {% for message in messages %}
+    <table id ="generalTable">
+        <tr>
+            <td id="generalId">
+                ID: {{ message.id }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Subject: {{ message.subject }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Content:
+                <p>
+                {{ message.content }}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Comment:
+                <p>
+                    {{ message.comment }}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <a href="/viewGMessage&{{  message.id }}">View</a>
+            </td>
+        </tr>
+    </table>
+        <p>
+
+        </p>
+        {% endfor %}
+
+{% endblock %}

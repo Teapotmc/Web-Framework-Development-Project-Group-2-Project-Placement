@@ -1,0 +1,110 @@
+{#----------------#}
+{# templates/admin.html.twig #}
+{#----------------#}
+
+{% extends '_base.html.twig' %}
+
+{% block title %}Create Job{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block newJobNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <h1>Job Creator</h1>
+
+    <h2>Create Job</h2>
+
+    <form
+            method="post"
+            action="/processNewJob">
+        <table class = "cvFormTable">
+            <tr>
+                <td colspan="2">
+                    <h2>Job Creator Form</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Job Name:
+                </td>
+                <td>
+                    <input type="text" name="name" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Details:
+                </td>
+                <td>
+                    <input type="text" name="details" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    EmployerId:
+                </td>
+                <td>
+                    <input type="text" name="employer" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Deadline:
+                </td>
+                <td>
+                    <input type="text" name="deadline" >
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="create">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h2>Register Employer</h2>
+
+    <form
+            method="post"
+            action="/processRegisterEmp">
+        <table class = "cvFormTable">
+            <tr>
+                <td colspan="2">
+                    <h2>Register Form</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td>
+                    <input type="text" name="username" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input type="text" name="password" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    EmployerId:
+                </td>
+                <td>
+                    <input type="text" name="employerId" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="create">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Private Message{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block pPrivateMessageNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <h1>Private Message Form</h1>
+    <h2>Here you can send a private Message to certain Users</h2>
+
+    <form
+            method="post"
+            action="/processPrivate">
+        <table class = "cvFormTable">
+            <tr>
+                <td colspan="2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td>
+                    <select name="username">
+                        {% for user in users %}
+                            <option value="{{  user.username }}">{{  user.username }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subject:
+                </td>
+                <td>
+                    <input type="text" name="subject" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Message:
+                </td>
+                <td>
+                    <textarea name="content" placeholder="Enter message here..." cols="21" rows ="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comment:
+                </td>
+                <td>
+                    <textarea name="comment" placeholder="Enter Comment on certain section of cvs here" cols="21" rows ="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td colspan="2">
+                    <input type="submit" value="send">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h2>Admin Messages</h2>
+
+    <br>
+
+    {% for message in messages %}
+        <table id ="generalTable">
+            <tr>
+                <td id="generalId">
+                    ID: {{ message.id }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    To: {{ message.username }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subject: {{ message.subject }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Content:
+                    <p>
+                        {{ message.content }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comment:
+                    <p>
+                        {{ message.comment }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <a href="/viewPrivate&{{  message.id }}">View</a>
+                </td>
+            </tr>
+        </table>
+        <p>
+
+        </p>
+    {% endfor %}
+
+{% endblock %}

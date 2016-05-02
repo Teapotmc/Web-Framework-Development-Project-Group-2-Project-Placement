@@ -1,0 +1,58 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Job Application{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block jobNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <h1>Job Applications</h1>
+    <h2>This page allows you to view a list of jobs and apply to them</h2>
+
+    <br>
+
+    {% for job in jobs %}
+    <table id = "cvTable">
+        <tr>
+            <td>
+            <b>Name</b>
+            </td>
+            <td>
+            {{  job.name }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <b>Details:</b>
+            </td>
+            <td>
+            {{  job.details }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <b>EmployerId:</b>
+            </td>
+            <td>
+            {{  job.employerId }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <b>Deadline:</b>
+            </td>
+            <td>
+            {{  job.deadline }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/apply&{{  job.id }}">Apply</a>
+            </td>
+        </tr>
+    </table>
+        <br>
+    {% endfor %}
+
+{% endblock %}

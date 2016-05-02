@@ -1,0 +1,56 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}General Message{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block pGeneralNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <h1>General Message Form</h1>
+    <h1>Here you can post a Message to all students</h1>
+
+    <form
+            method="post"
+            action="/processGeneral">
+        <table class = "cvFormTable">
+            <tr>
+                <td colspan="2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subject:
+                </td>
+                <td>
+                    <input type="text" name="subject" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Message:
+                </td>
+                <td>
+                    <textarea name="content" placeholder="Enter message here..." cols="21" rows ="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comment:
+                </td>
+                <td>
+                    <textarea name="comment" placeholder="Enter Comment on certain section of cvs here" cols="21" rows ="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td colspan="2">
+                    <input type="submit" value="send">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+{% endblock %}

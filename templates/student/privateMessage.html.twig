@@ -1,0 +1,57 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Private Messages{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block privateMessageNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <h1>Private Messages</h1>
+
+
+    {% for message in messages %}
+        <table id ="generalTable">
+            <tr>
+                <td id="generalId">
+                    ID: {{ message.id }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    To: {{ message.username }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subject: {{ message.subject }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Content:
+                    <p>
+                        {{ message.content }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comment:
+                    <p>
+                        {{ message.comment }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <a href="/viewPMessage&{{  message.id }}">View</a>
+                </td>
+            </tr>
+        </table>
+        <p>
+
+        </p>
+    {% endfor %}
+
+{% endblock %}

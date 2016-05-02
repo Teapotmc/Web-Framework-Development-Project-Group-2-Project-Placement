@@ -1,0 +1,45 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Update Student{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block updateNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <form
+            method="post"
+            action="/processUpdate">
+        <table class = "cvFormTable">
+            <tr>
+                <td colspan="2">
+                    <h2>Update Form</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td>
+                    <input type="text" name="name" value="{{ student.username }}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Employment Status:
+                </td>
+                <td>
+                <select name="employed">
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="Employed">Employed</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="apply">
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

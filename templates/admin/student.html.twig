@@ -1,0 +1,50 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Student Records{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block aCvNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <h1>Student Records</h1>
+
+
+    {% for student in students %}
+        <table id = "cvTable">
+            <tr>
+                <td>
+                    <b>Id</b>
+                </td>
+                <td>
+                    {{  student.id }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Username:</b>
+                </td>
+                <td>
+                    {{  student.username }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Employment Status:</b>
+                </td>
+                <td>
+                    {{  student.employed }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/updateStudent&{{ student.id }}">Update</a>
+                </td>
+            </tr>
+        </table>
+        <p>
+
+        </p>
+    {% endfor %}
+
+{% endblock %}

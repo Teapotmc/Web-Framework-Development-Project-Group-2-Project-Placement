@@ -1,0 +1,123 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Crud{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block crudNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <h1>Crud</h1>
+
+    <h2>Here you can Create,Read,Update and Delete student records</h2>
+
+
+    <form
+            method="post"
+            action="/processCreate">
+        <table>
+            <tr>
+                <td>
+                    <h2>Create form</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td>
+                    <input type="text" name="username" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input type="password" name="password" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="create">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+    <br>
+
+    <form
+            method="post"
+            action="/processUpdateCrud">
+        <table>
+            <tr>
+                <td>
+                    <h2>Update form</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td>
+                    <select name="username">
+                        {% for user in users %}
+                            <option value="{{  user.username }}">{{  user.username }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input type="password" name="password" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="update">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+    <br>
+
+    <form
+            method="post"
+            action="/processDelete">
+        <table>
+            <tr>
+                <td>
+                    <h2>Delete form</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td>
+                    <select name="username">
+                        {% for user in users %}
+                            <option value="{{  user.username }}">{{  user.username }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="delete">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends '_base.html.twig' %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}Login{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <h1>Login Page</h1>
+    <h2>Hint: User and Password are case sensitive</h2>
+
+<form
+    method="post"
+    action="/processLogin"
+    >
+<table>
+    <tr>
+        <td>
+            Username:
+        </td>
+        <td>
+            <input type="text" name="username" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Password:
+        </td>
+        <td>
+            <input type="password" name="password" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="login">
+        </td>
+    </tr>
+</table>
+</form>
+
+{% endblock %}

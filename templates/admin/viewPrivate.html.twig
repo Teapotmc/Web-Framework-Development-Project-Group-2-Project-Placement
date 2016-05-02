@@ -1,0 +1,44 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Private Message{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block viewPrivateNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+<table id ="generalTable">
+    <tr>
+        <td id="generalId">
+            ID: {{ message.id }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            To: {{ message.username }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Subject: {{ message.subject }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Content:
+            <p>
+                {{ message.content }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Comment:
+            <p>
+                {{ message.comment }}
+            </p>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}

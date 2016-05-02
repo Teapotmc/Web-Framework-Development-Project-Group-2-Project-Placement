@@ -1,0 +1,58 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Job Application{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block applyNavStyle %}current_page{% endblock %}
+
+{% block main %}
+
+    <form
+            method="post"
+            action="/processApply">
+        <table class = "cvFormTable">
+            <tr>
+                <td colspan="2">
+                    <h2>Update Form</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td>
+                    <input type="text" name="name" value="{{ job.name }}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    EmployerId:
+                </td>
+                <td>
+                    <input type="text" name="employerId" value="{{ job.employerId }}" readonly >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Deadline:
+                </td>
+                <td>
+                    <input type="text" name="deadline" value="{{ job.deadline }}" readonly >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Full Name:
+                </td>
+                <td>
+                    <input type="text" name="student" placeholder="Enter Full name here" required >
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="apply">
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
